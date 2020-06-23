@@ -50,10 +50,12 @@ class Service
                 authors.append("\(author.stringValue) ")
             }
             let thumbnail = volInfo[JSONKeys.imageLinks][JSONKeys.small].stringValue
+            let webURL = URL(string: aNovel[JSONKeys.accessInfo][JSONKeys.webLink].stringValue)
             
             let novel = DataModel.Novel(title: title,
                                         author: authors,
-                                        imageUrl: URL(string: thumbnail))
+                                        imageUrl: URL(string: thumbnail),
+                                        webReaderUrl: webURL)
             
             bookList.append(novel)
         }

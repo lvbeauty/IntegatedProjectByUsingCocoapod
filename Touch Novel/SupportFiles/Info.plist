@@ -91,5 +91,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This App needs to access your camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This App needs to access your photo library.</string>
 </dict>
 </plist>

@@ -85,7 +85,7 @@ extension ThirdViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     @objc func photoPickButtonTapped(_ sender: UIImageView) {
-        self.present(photoPickCtrl, animated: true, completion: nil)
+        ActionManager.shared.action(photoPickerCtrl: photoPickCtrl, sender: self)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
