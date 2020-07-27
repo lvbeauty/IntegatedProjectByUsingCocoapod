@@ -58,9 +58,9 @@ class ForgetPasswordViewController: BaseNavController
         repeatPasswordTF.isHidden = true
         repeatPasswordTF.delegate = self
         
-        emailImageView.roundedImage()
-        keyImageView.roundedImage()
-        repeatKeyImageView.roundedImage()
+        emailImageView.roundedImageView()
+        keyImageView.roundedImageView()
+        repeatKeyImageView.roundedImageView()
         
         CustomButton.roundBorderButton(savePasswordButton)
     }

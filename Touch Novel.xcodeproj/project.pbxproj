@@ -31,9 +31,36 @@
 		249F3612247C38940099CA0A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3611247C38940099CA0A /* DataModel.swift */; };
 		249F3614247C4A920099CA0A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3613247C4A920099CA0A /* Service.swift */; };
 		24C964D8247F168A00061A9E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24C964D7247F168A00061A9E /* README.md */; };
+		24CB2FB624C64EAD001298F8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CB2FB524C64EAD001298F8 /* ShareViewController.swift */; };
+		24CB2FB924C64EAD001298F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */; };
+		24CB2FBD24C64EAD001298F8 /* SharedExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24CB2FB324C64EAD001298F8 /* SharedExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24FD7F47247EB33E0048EA86 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD7F46247EB33E0048EA86 /* WebViewController.swift */; };
 		E890A774F509A938610122EB /* Pods_Touch_Novel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBA849CB4B09FF43B99B77D /* Pods_Touch_Novel.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24CB2FBB24C64EAD001298F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24839D57247B0D630076EAAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24CB2FB224C64EAD001298F8;
+			remoteInfo = SharedExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24CB2FBE24C64EAD001298F8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				24CB2FBD24C64EAD001298F8 /* SharedExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		243FA31E247DB25C004563F4 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +89,11 @@
 		249F3611247C38940099CA0A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		249F3613247C4A920099CA0A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		24C964D7247F168A00061A9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		24CB2FB324C64EAD001298F8 /* SharedExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SharedExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		24CB2FB524C64EAD001298F8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		24CB2FB824C64EAD001298F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		24CB2FBA24C64EAD001298F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24CB2FC224C64F0C001298F8 /* SharedExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharedExt.entitlements; sourceTree = "<group>"; };
 		24FD7F46247EB33E0048EA86 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		90E67C991502E9127E568AFA /* Pods-Touch Novel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touch Novel.release.xcconfig"; path = "Target Support Files/Pods-Touch Novel/Pods-Touch Novel.release.xcconfig"; sourceTree = "<group>"; };
 		9CBA849CB4B09FF43B99B77D /* Pods_Touch_Novel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touch_Novel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +106,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E890A774F509A938610122EB /* Pods_Touch_Novel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CB2FB024C64EAD001298F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +133,7 @@
 			children = (
 				24C964D7247F168A00061A9E /* README.md */,
 				24839D61247B0D630076EAAB /* Touch Novel */,
+				24CB2FB424C64EAD001298F8 /* SharedExt */,
 				24839D60247B0D630076EAAB /* Products */,
 				05ED346E79A586712FDCB32A /* Pods */,
 				6676290489F51AB43020D8BF /* Frameworks */,
@@ -104,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				24839D5F247B0D630076EAAB /* Touch Novel.app */,
+				24CB2FB324C64EAD001298F8 /* SharedExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +253,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		24CB2FB424C64EAD001298F8 /* SharedExt */ = {
+			isa = PBXGroup;
+			children = (
+				24CB2FC224C64F0C001298F8 /* SharedExt.entitlements */,
+				24CB2FB524C64EAD001298F8 /* ShareViewController.swift */,
+				24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */,
+				24CB2FBA24C64EAD001298F8 /* Info.plist */,
+			);
+			path = SharedExt;
+			sourceTree = "<group>";
+		};
 		6676290489F51AB43020D8BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,15 +284,34 @@
 				24839D5C247B0D630076EAAB /* Frameworks */,
 				24839D5D247B0D630076EAAB /* Resources */,
 				BBA88F93D4B77A17CD3CDBBB /* [CP] Embed Pods Frameworks */,
+				24CB2FBE24C64EAD001298F8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				24CB2FBC24C64EAD001298F8 /* PBXTargetDependency */,
 			);
 			name = "Touch Novel";
 			productName = "Touch Novel";
 			productReference = 24839D5F247B0D630076EAAB /* Touch Novel.app */;
 			productType = "com.apple.product-type.application";
+		};
+		24CB2FB224C64EAD001298F8 /* SharedExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24CB2FC124C64EAD001298F8 /* Build configuration list for PBXNativeTarget "SharedExt" */;
+			buildPhases = (
+				24CB2FAF24C64EAD001298F8 /* Sources */,
+				24CB2FB024C64EAD001298F8 /* Frameworks */,
+				24CB2FB124C64EAD001298F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SharedExt;
+			productName = SharedExt;
+			productReference = 24CB2FB324C64EAD001298F8 /* SharedExt.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -253,6 +324,9 @@
 				ORGANIZATIONNAME = "Tong Yi";
 				TargetAttributes = {
 					24839D5E247B0D630076EAAB = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					24CB2FB224C64EAD001298F8 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -271,6 +345,7 @@
 			projectRoot = "";
 			targets = (
 				24839D5E247B0D630076EAAB /* Touch Novel */,
+				24CB2FB224C64EAD001298F8 /* SharedExt */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +359,14 @@
 				24839D6E247B0D640076EAAB /* Assets.xcassets in Resources */,
 				24C964D8247F168A00061A9E /* README.md in Resources */,
 				24839D6C247B0D630076EAAB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CB2FB124C64EAD001298F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CB2FB924C64EAD001298F8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +443,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24CB2FAF24C64EAD001298F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CB2FB624C64EAD001298F8 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24CB2FBC24C64EAD001298F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24CB2FB224C64EAD001298F8 /* SharedExt */;
+			targetProxy = 24CB2FBB24C64EAD001298F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		24839D6A247B0D630076EAAB /* Main.storyboard */ = {
@@ -377,6 +476,14 @@
 				24839D70247B0D640076EAAB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24CB2FB824C64EAD001298F8 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -500,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAEC81C02AD032D21C306082 /* Pods-Touch Novel.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90E67C991502E9127E568AFA /* Pods-Touch Novel.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +644,50 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		24CB2FBF24C64EAD001298F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SharedExt/SharedExt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GB73HYNVQ3;
+				INFOPLIST_FILE = SharedExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tong.storyBoard.Touch-Novel.SharedExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24CB2FC024C64EAD001298F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SharedExt/SharedExt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GB73HYNVQ3;
+				INFOPLIST_FILE = SharedExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tong.storyBoard.Touch-Novel.SharedExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -555,6 +708,15 @@
 			buildConfigurations = (
 				24839D76247B0D640076EAAB /* Debug */,
 				24839D77247B0D640076EAAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24CB2FC124C64EAD001298F8 /* Build configuration list for PBXNativeTarget "SharedExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24CB2FBF24C64EAD001298F8 /* Debug */,
+				24CB2FC024C64EAD001298F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

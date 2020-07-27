@@ -83,10 +83,10 @@ class SignUpViewController: BaseNavController
         CustomTextField.roundBorder(repeatPasswordTF)
         repeatPasswordTF.delegate = self
         
-        personImageView.roundedImage()
-        emailImageView.roundedImage()
-        keyImageView.roundedImage()
-        repeatKeyImageView.roundedImage()
+        personImageView.roundedImageView()
+        emailImageView.roundedImageView()
+        keyImageView.roundedImageView()
+        repeatKeyImageView.roundedImageView()
         
         CustomButton.roundBorderButton(signUpButton)
     }

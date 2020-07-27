@@ -29,7 +29,7 @@ class ThirdViewController: UIViewController
     
     private func setupUI()
     {
-        profileImageView.roundedImage()
+        profileImageView.roundedImageView()
         if UserDefaults.standard.bool(forKey: AppConstants.UD.logInKey)
         {
             usernameLabel.text = UserDefaults.standard.object(forKey: AppConstants.UD.userName) as? String

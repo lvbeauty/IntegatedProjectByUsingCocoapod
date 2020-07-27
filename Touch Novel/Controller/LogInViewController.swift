@@ -60,9 +60,9 @@ class LogInViewController: BaseNavController
         view.setGradientBackground(colorOne: AppConstants.Colors.orangePink,
                                    colorTwo: AppConstants.Colors.lightPink,
                                    colorThree: AppConstants.Colors.pink)
-        logInImageView.roundedImage()
-        personImage.roundedImage()
-        keyImage.roundedImage()
+        logInImageView.roundedImageView()
+        personImage.roundedImageView()
+        keyImage.roundedImageView()
         
         CustomTextField.roundBorder(userNameTF) //extension is better
         userNameTF.delegate = self

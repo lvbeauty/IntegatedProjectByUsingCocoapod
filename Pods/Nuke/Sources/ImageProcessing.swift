@@ -604,11 +604,11 @@ struct ImageProcessingExtensions {
             path.stroke()
         }
 
-        guard let roundedImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+        guard let roundedImageView = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
             return nil
         }
 
-        return UIImage(cgImage: roundedImage, scale: image.scale, orientation: image.imageOrientation)
+        return UIImage(cgImage: roundedImageView, scale: image.scale, orientation: image.imageOrientation)
     }
 
     #endif

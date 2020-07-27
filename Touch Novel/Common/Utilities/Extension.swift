@@ -11,7 +11,7 @@ import UIKit
 //MARK: - Extension for UIImageView
 extension UIImageView
 {
-    func roundedImage()
+    func roundedImageView()
     {
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
