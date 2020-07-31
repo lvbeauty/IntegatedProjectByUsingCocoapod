@@ -1,5 +1,11 @@
 May 27 Wednsday
-Project: Touch Novel
+# Project: Touch Novel
+
+Touch Novel is a demo project for reading various Novels being dynamically fetched from the Google Books API.
+
+The idea was to leverage various third-party libraries that I wanted to use.
+
+
 
 Third-Party Library Using case:
 1. Alamofire: 
