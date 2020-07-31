@@ -77,12 +77,26 @@ class SecondViewController: UIViewController
         
     }
     
+    //MARK: - prepare for segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let item = sender as! DataModel.Novel
+        if segue.identifier == AppConstants.SB.webViewSegueId2
+        {
+            guard let vc = segue.destination as? WebViewController else {return}
+            vc.url = item.webReaderUrl
+        }
+    }
+    
 }
 
 //MARK: - Table View
 
-extension SecondViewController: UITableViewDelegate, UITableViewDataSource
+extension SecondViewController: UITableViewDelegate, UITableViewDataSource, CollectionRowDelegate
 {
+    // MARK: - UITable View Delegate and DataSource Methods
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.count
     }
@@ -127,6 +141,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource
         cell.contentMode = .scaleAspectFit
         
         cell.setData(listNovel: dataSource[indexPath.section])
+        cell.delegate = self
         
         return cell
     }
@@ -135,5 +150,11 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource
     {
         //MARK: 3PL -> ViewAnimator -> animated
         UIView.animate(views: [cell], animations: [zoomAnimation, fromAnimation], duration: 1.5)
+    }
+    
+    //MARK: - Collection View Protocol Delegate Method
+    
+    func collectionCellTapped(item: DataModel.Novel) {
+        performSegue(withIdentifier: AppConstants.SB.webViewSegueId2, sender: item)
     }
 }

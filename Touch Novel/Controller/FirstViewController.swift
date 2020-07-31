@@ -20,6 +20,7 @@ class FirstViewController: UIViewController
     let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
     let zoomAnimation = AnimationType.zoom(scale: 0.2)
     let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+    private var noResultLabel: UILabel!
     
     let options = ImageLoadingOptions(
         placeholder: UIImage(named: "bookImage"),
@@ -61,8 +62,12 @@ class FirstViewController: UIViewController
     
     private func setupUI()
     {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = selectBarButton
+        
+        noResultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.collectionView.bounds.width, height: self.collectionView.bounds.height))
+        noResultLabel.numberOfLines = 0
+        noResultLabel.text = ""
     
         setupCollectionViewLayout()
         collectionView.dataSource = self
@@ -129,6 +134,8 @@ class FirstViewController: UIViewController
         selectedIndexPath.removeAll()
     }
     
+    //MARK: - prepare for Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let item = sender as! DataModel.Novel
@@ -138,6 +145,17 @@ class FirstViewController: UIViewController
             vc.url = item.webReaderUrl
         }
     }
+    
+    //MARK: - No result showing Label
+    func showNoResultLabel(_ text: String) -> UIView
+    {
+        noResultLabel.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 60)
+        noResultLabel.text = text
+        noResultLabel.textAlignment = NSTextAlignment.center
+        noResultLabel.textColor = .white
+        
+        return noResultLabel
+    }
 }
 
 //MARK: - Collection View
@@ -145,6 +163,12 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
+        if readingList.count == 0 {
+            collectionView.backgroundView = showNoResultLabel(AppConstants.noDataToShow)
+        } else {
+            collectionView.backgroundView = UIView()
+        }
+        
         return readingList.count
     }
     

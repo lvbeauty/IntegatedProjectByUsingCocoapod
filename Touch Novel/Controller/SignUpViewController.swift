@@ -89,6 +89,8 @@ class SignUpViewController: BaseNavController
         repeatKeyImageView.roundedImageView()
         
         CustomButton.roundBorderButton(signUpButton)
+        
+        removeImage(imageName: AppConstants.Profile.imageName)
     }
 
     //MARK: - IBAction
@@ -105,6 +107,10 @@ class SignUpViewController: BaseNavController
         {
             alert("Please Enter a Valid Email Address!")
         }
+//        else if !isValidPassword(password)
+//        {
+//            alert("Please Enter a Valid Password!")
+//        }
         
         //Check if password match
         if password != repeatPassword
@@ -134,6 +140,25 @@ class SignUpViewController: BaseNavController
     {
         let passwordVaild = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
         return passwordVaild.evaluate(with: password)
+    }
+}
+
+extension SignUpViewController {
+    func removeImage(imageName: String)
+    {
+       let fileManager = FileManager.default
+       let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+       if fileManager.fileExists(atPath: imagePath) {
+        do {
+            let url = URL(fileURLWithPath: imagePath)
+            try fileManager.removeItem(at: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+            
+       }else{
+            print("Panic! No Image!")
+       }
     }
 }
 

@@ -12,6 +12,7 @@ class ThirdViewController: UIViewController
 {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
@@ -33,6 +34,7 @@ class ThirdViewController: UIViewController
         if UserDefaults.standard.bool(forKey: AppConstants.UD.logInKey)
         {
             usernameLabel.text = UserDefaults.standard.object(forKey: AppConstants.UD.userName) as? String
+            emailLabel.text = UserDefaults.standard.object(forKey: AppConstants.UD.email) as? String
         }
         
         if UserDefaults.standard.bool(forKey: AppConstants.UD.saveProfileImage)

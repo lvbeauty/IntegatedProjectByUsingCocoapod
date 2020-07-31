@@ -52,10 +52,10 @@ class ForgetPasswordViewController: BaseNavController
         CustomTextField.roundBorder(emailTF)
         emailTF.delegate = self
         CustomTextField.roundBorder(newPasswordTF)
-        newPasswordTF.isHidden = true
+        newPasswordTF.isUserInteractionEnabled = false
         newPasswordTF.delegate = self
         CustomTextField.roundBorder(repeatPasswordTF)
-        repeatPasswordTF.isHidden = true
+        repeatPasswordTF.isUserInteractionEnabled = false
         repeatPasswordTF.delegate = self
         
         emailImageView.roundedImageView()
@@ -63,6 +63,7 @@ class ForgetPasswordViewController: BaseNavController
         repeatKeyImageView.roundedImageView()
         
         CustomButton.roundBorderButton(savePasswordButton)
+        
     }
 
     @IBAction func sentButtonTapped(_ sender: Any)
@@ -70,7 +71,9 @@ class ForgetPasswordViewController: BaseNavController
         guard let email = emailTF.text, email == UserDefaults.standard.value(forKey: AppConstants.UD.email) as! String
         else { alert("Please Enter A vaild Email!"); return }
         
-        newPasswordTF.isHidden = false; repeatPasswordTF.isHidden = false
+        newPasswordTF.isUserInteractionEnabled = true; repeatPasswordTF.isUserInteractionEnabled = true
+        emailTF.endEditing(true)
+        newPasswordTF.becomeFirstResponder()
     }
     
     @IBAction func savePasswordButtonTapped(_ sender: UIButton)

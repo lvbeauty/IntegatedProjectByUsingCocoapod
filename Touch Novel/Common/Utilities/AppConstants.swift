@@ -10,6 +10,8 @@ import UIKit
 
 struct AppConstants
 {
+    static let noDataToShow = "There is no result in your reading list. \n Please find the books you like in the featured page."
+    
     //MARK: - Color constants
     struct Colors
     {
@@ -48,6 +50,7 @@ struct AppConstants
         static let navIdentifier = "NavigationController"
         static let resetPasswordId = "ForgetPasswordViewController"
         static let webViewSegueId = "showWebViewSegue"
+        static let webViewSegueId2 = "showWebViewSegue2"
     }
     
     //MARK: - Cell

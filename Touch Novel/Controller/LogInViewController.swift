@@ -118,6 +118,8 @@ extension LogInViewController
 {
     func textFieldDidEndEditing(_ textField: UITextField)
     {
+        guard userNameTF.text == UserDefaults.standard.value(forKey: AppConstants.UD.userName) as? String else { return }
+        
         if UserDefaults.standard.bool(forKey: AppConstants.UD.saveProfileImage)
         {
             getImage(imageName: AppConstants.Profile.imageName)
