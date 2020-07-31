@@ -5,9 +5,12 @@ Touch Novel is a demo project for reading various Novels being dynamically fetch
 
 The idea was to leverage various third-party libraries that I wanted to use.
 
+App Demo: https://drive.google.com/file/d/17pZYLQfH7-GlcXzSQYJWHS3ST7fzuMfT/view?usp=sharing
 
 
-Third-Party Library Using case:
+
+Third-Party Libraries being used:
+
 1. Alamofire: 
 Alamofire provides a variety of convenience methods for making HTTP requests.  
 -> I use it to get data from API
