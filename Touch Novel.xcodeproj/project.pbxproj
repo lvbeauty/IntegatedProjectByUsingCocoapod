@@ -30,6 +30,7 @@
 		249F3610247C2EFD0099CA0A /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F360F247C2EFD0099CA0A /* BookCollectionViewCell.swift */; };
 		249F3612247C38940099CA0A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3611247C38940099CA0A /* DataModel.swift */; };
 		249F3614247C4A920099CA0A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3613247C4A920099CA0A /* Service.swift */; };
+		24B6BFEA24D39FC9008221E6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6BFE924D39FC9008221E6 /* Protocol.swift */; };
 		24C964D8247F168A00061A9E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24C964D7247F168A00061A9E /* README.md */; };
 		24CB2FB624C64EAD001298F8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CB2FB524C64EAD001298F8 /* ShareViewController.swift */; };
 		24CB2FB924C64EAD001298F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */; };
@@ -88,6 +89,7 @@
 		249F360F247C2EFD0099CA0A /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		249F3611247C38940099CA0A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		249F3613247C4A920099CA0A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		24B6BFE924D39FC9008221E6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		24C964D7247F168A00061A9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		24CB2FB324C64EAD001298F8 /* SharedExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SharedExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		24CB2FB524C64EAD001298F8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		24839D61247B0D630076EAAB /* Touch Novel */ = {
 			isa = PBXGroup;
 			children = (
+				24B6BFE824D39B83008221E6 /* AppEnter */,
 				24839D7D247B0E150076EAAB /* Common */,
 				24839D7C247B0E0C0076EAAB /* Model */,
 				249B7689248014A100AFB2AD /* ViewModel */,
@@ -183,6 +186,7 @@
 				24839D9B247BB0D00076EAAB /* SecondViewController.swift */,
 				24839D68247B0D630076EAAB /* ThirdViewController.swift */,
 				24FD7F46247EB33E0048EA86 /* WebViewController.swift */,
+				24B6BFE924D39FC9008221E6 /* Protocol.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,8 +220,6 @@
 		24839D7D247B0E150076EAAB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				24839D62247B0D630076EAAB /* AppDelegate.swift */,
-				24839D64247B0D630076EAAB /* SceneDelegate.swift */,
 				24839D7E247B0E1D0076EAAB /* Utilities */,
 			);
 			path = Common;
@@ -251,6 +253,15 @@
 				249B768A2480152900AFB2AD /* CollectionCellViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		24B6BFE824D39B83008221E6 /* AppEnter */ = {
+			isa = PBXGroup;
+			children = (
+				24839D62247B0D630076EAAB /* AppDelegate.swift */,
+				24839D64247B0D630076EAAB /* SceneDelegate.swift */,
+			);
+			path = AppEnter;
 			sourceTree = "<group>";
 		};
 		24CB2FB424C64EAD001298F8 /* SharedExt */ = {
@@ -436,6 +447,7 @@
 				24839D90247B67F00076EAAB /* SignUpViewController.swift in Sources */,
 				24839D9A247BA84A0076EAAB /* BaseNavController.swift in Sources */,
 				249F3612247C38940099CA0A /* DataModel.swift in Sources */,
+				24B6BFEA24D39FC9008221E6 /* Protocol.swift in Sources */,
 				24839D63247B0D630076EAAB /* AppDelegate.swift in Sources */,
 				24839D65247B0D630076EAAB /* SceneDelegate.swift in Sources */,
 				243FA31F247DB25C004563F4 /* FavoriteCollectionViewCell.swift in Sources */,
