@@ -90,7 +90,7 @@ class FirstViewController: UIViewController
     private func setupCollectionViewLayout()
     {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: (view.frame.width - 5 * 4) / 3.0, height: 200)
+        layout.itemSize = CGSize(width: (view.frame.width - 5 * 2 - 8 * 2) / 3.0, height: 200)
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
