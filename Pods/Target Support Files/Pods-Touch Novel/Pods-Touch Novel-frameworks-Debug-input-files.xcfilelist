@@ -1,9 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-Touch Novel/Pods-Touch Novel-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
-${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
-${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
-${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
-${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
-${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
-${BUILT_PRODUCTS_DIR}/XLForm/XLForm.framework

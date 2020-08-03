@@ -36,7 +36,6 @@
 		24CB2FB924C64EAD001298F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */; };
 		24CB2FBD24C64EAD001298F8 /* SharedExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24CB2FB324C64EAD001298F8 /* SharedExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24FD7F47247EB33E0048EA86 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD7F46247EB33E0048EA86 /* WebViewController.swift */; };
-		E890A774F509A938610122EB /* Pods_Touch_Novel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBA849CB4B09FF43B99B77D /* Pods_Touch_Novel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,9 +96,6 @@
 		24CB2FBA24C64EAD001298F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24CB2FC224C64F0C001298F8 /* SharedExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharedExt.entitlements; sourceTree = "<group>"; };
 		24FD7F46247EB33E0048EA86 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		90E67C991502E9127E568AFA /* Pods-Touch Novel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touch Novel.release.xcconfig"; path = "Target Support Files/Pods-Touch Novel/Pods-Touch Novel.release.xcconfig"; sourceTree = "<group>"; };
-		9CBA849CB4B09FF43B99B77D /* Pods_Touch_Novel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Touch_Novel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAEC81C02AD032D21C306082 /* Pods-Touch Novel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Touch Novel.debug.xcconfig"; path = "Target Support Files/Pods-Touch Novel/Pods-Touch Novel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E890A774F509A938610122EB /* Pods_Touch_Novel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +119,6 @@
 		05ED346E79A586712FDCB32A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EAEC81C02AD032D21C306082 /* Pods-Touch Novel.debug.xcconfig */,
-				90E67C991502E9127E568AFA /* Pods-Touch Novel.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -138,7 +131,6 @@
 				24CB2FB424C64EAD001298F8 /* SharedExt */,
 				24839D60247B0D630076EAAB /* Products */,
 				05ED346E79A586712FDCB32A /* Pods */,
-				6676290489F51AB43020D8BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,14 +267,6 @@
 			path = SharedExt;
 			sourceTree = "<group>";
 		};
-		6676290489F51AB43020D8BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9CBA849CB4B09FF43B99B77D /* Pods_Touch_Novel.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,11 +274,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24839D75247B0D640076EAAB /* Build configuration list for PBXNativeTarget "Touch Novel" */;
 			buildPhases = (
-				A1D8D88DE88C66C3869C07F8 /* [CP] Check Pods Manifest.lock */,
 				24839D5B247B0D630076EAAB /* Sources */,
 				24839D5C247B0D630076EAAB /* Frameworks */,
 				24839D5D247B0D630076EAAB /* Resources */,
-				BBA88F93D4B77A17CD3CDBBB /* [CP] Embed Pods Frameworks */,
 				24CB2FBE24C64EAD001298F8 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -382,48 +364,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A1D8D88DE88C66C3869C07F8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Touch Novel-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBA88F93D4B77A17CD3CDBBB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touch Novel/Pods-Touch Novel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Touch Novel/Pods-Touch Novel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Touch Novel/Pods-Touch Novel-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24839D5B247B0D630076EAAB /* Sources */ = {
@@ -617,7 +557,6 @@
 		};
 		24839D76247B0D640076EAAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAEC81C02AD032D21C306082 /* Pods-Touch Novel.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -639,7 +578,6 @@
 		};
 		24839D77247B0D640076EAAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E67C991502E9127E568AFA /* Pods-Touch Novel.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
