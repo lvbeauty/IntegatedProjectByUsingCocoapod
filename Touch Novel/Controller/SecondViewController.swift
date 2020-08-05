@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ViewAnimator
+import ESPullToRefresh
 
 class SecondViewController: UIViewController
 {
@@ -22,24 +23,15 @@ class SecondViewController: UIViewController
     var dataSource = [[DataModel.Novel]]()
     let networkManager = Service.shared
     
-    lazy var selectBarButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: nil)
-        return barButtonItem
-    }()
-    
-    lazy var deleteBarButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: nil)
-        return barButtonItem
-    }()
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+       
         tableViewSetup()
         setupData()
     }
     
-    //MARK: - Set UP Data
+    //MARK: - Set UP
     func setupData()
     {
         for cate in 0 ..< AppConstants.Network.urls.count
@@ -56,26 +48,29 @@ class SecondViewController: UIViewController
         }
     }
     
+//    func setupUI() {
+//        self.navigationItem.leftBarButtonItem = editButtonItem
+//    }
+    
     func tableViewSetup()
     {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 253.0/255.0, green: 240.0/255.0, blue: 196.0/255.0, alpha: 1)
-    }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        guard let indexPaths = tableView.indexPathsForVisibleRows else {return}
-        for indexPath in indexPaths {
-            let cell = tableView.cellForRow(at: indexPath) as! FeaturedTableViewCell
-            cell.startEditing()
+        tableView.es.addPullToRefresh { [unowned self] in
+            self.setupData()
+            self.tableView.es.stopPullToRefresh()
         }
     }
     
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        guard let indexPaths = tableView.indexPathsForVisibleRows else {return}
+//        for indexPath in indexPaths {
+//            let cell = tableView.cellForRow(at: indexPath) as! FeaturedTableViewCell
+//            cell.editingState(editing)
+//        }
+//    }
     
-    @IBAction func favoriteButtonTapped(_ sender: Any)
-    {
-        
-    }
     
     //MARK: - prepare for segue
     
@@ -87,6 +82,10 @@ class SecondViewController: UIViewController
             guard let vc = segue.destination as? WebViewController else {return}
             vc.url = item.webReaderUrl
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return !tableView.isEditing
     }
     
 }
@@ -142,6 +141,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource, Coll
         
         cell.setData(listNovel: dataSource[indexPath.section])
         cell.delegate = self
+//        cell.editingState(isEditing)
         
         return cell
     }

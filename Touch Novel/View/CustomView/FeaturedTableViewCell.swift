@@ -73,16 +73,19 @@ class FeaturedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let item = listNovel[indexPath.item]
-        
-        if delegate != nil {
-            delegate?.collectionCellTapped(item: item)
-        }
+//        if !isEditing {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            let item = listNovel[indexPath.item]
+            
+            if delegate != nil {
+                delegate?.collectionCellTapped(item: item)
+            }
+//        }
     }
     
-    func startEditing() {
-        featuredCollectionView.allowsMultipleSelection = true
+    func editingState(_ edit: Bool) {
+        setEditing(edit, animated: edit)
+        featuredCollectionView.allowsMultipleSelection = edit
     }
     
     //MARK: - Initializer for collection view

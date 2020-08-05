@@ -11,9 +11,7 @@ target 'Touch Novel' do
   pod 'Alamofire', '~> 5.0'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Nuke', '~> 8.0'
-  pod 'SDWebImage', '~> 5.0'
   pod "ViewAnimator"
-  pod 'XLForm', '~> 4.1'
   pod "ESPullToRefresh"
 
 end

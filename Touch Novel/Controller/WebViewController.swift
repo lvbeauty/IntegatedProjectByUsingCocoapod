@@ -45,6 +45,11 @@ class WebViewController: UIViewController, WKNavigationDelegate
         }
     }
     
+    @IBAction func favoriteButtonTapped(_ sender: Any)
+    {
+        
+    }
+    
     //MARK: - 3PL -> MBProgressHUD -> use as activity indicator
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         let activityIndicator = MBProgressHUD.showAdded(to: self.view, animated: true)
