@@ -26,6 +26,7 @@ class CoreDataManager
         let container = NSPersistentContainer(name: "FavoriteBooks")
         
         if let url = container.persistentStoreDescriptions.first?.url {
+            print(url)
             let description = NSPersistentStoreDescription(url: url)
             description.shouldMigrateStoreAutomatically = true
             description.shouldInferMappingModelAutomatically = true

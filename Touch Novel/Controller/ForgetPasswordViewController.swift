@@ -96,7 +96,7 @@ class ForgetPasswordViewController: BaseNavController
         UserDefaults.standard.set(password, forKey: AppConstants.UD.password)
 
         //Display successfully message
-        cheer("Sign Up Successfully!")
+        cheer("Reset Password Successfully!")
         
     }
 }

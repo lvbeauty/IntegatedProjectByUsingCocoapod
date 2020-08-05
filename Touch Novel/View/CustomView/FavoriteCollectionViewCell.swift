@@ -47,7 +47,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell
         //MARK: nuke
         Nuke.loadImage(with: url, options: options, into: self.bookImageView)
         
-        if indexPath.row % 2 == 0
+        if indexPath.item % 2 == 0
         {
             self.backgroundColor = UIColor(red: 200.0/255.0, green: 220.0/255.0, blue: 196.0/255.0, alpha: 1)
         }
@@ -56,6 +56,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell
             self.backgroundColor = UIColor(red: 255.0/255.0, green: 200.0/255.0, blue: 196.0/255.0, alpha: 1)
         }
         
-        self.backgroundColor = UIColor(red: 250/255, green: 200/255, blue: 210/255, alpha: 1)
+//        self.backgroundColor = UIColor(red: 250/255, green: 200/255, blue: 210/255, alpha: 1)
     }
 }

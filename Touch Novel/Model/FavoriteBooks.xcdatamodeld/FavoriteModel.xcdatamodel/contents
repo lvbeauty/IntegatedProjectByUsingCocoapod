@@ -6,7 +6,14 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="webReaderURL" optional="YES" attributeType="URI"/>
     </entity>
+    <entity name="FavoriteBook" representedClassName="FavoriteBook" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="URI"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="webReaderURL" optional="YES" attributeType="URI"/>
+    </entity>
     <elements>
         <element name="Book" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="FavoriteBook" positionX="-63" positionY="9" width="128" height="103"/>
     </elements>
 </model>

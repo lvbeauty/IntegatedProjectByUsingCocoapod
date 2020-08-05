@@ -14,7 +14,6 @@ class FirstViewController: UIViewController
 {
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    var readingList = [DataModel.Novel]()
     let service = Service.shared
     var selectedIndexPath: [IndexPath: Bool] = [:]
     let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
@@ -60,7 +59,10 @@ class FirstViewController: UIViewController
         
         setupUI()
         setupViewModel()
-//        setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.refreshData()
     }
     
     //MARK: Set Up for UIElements
@@ -74,9 +76,6 @@ class FirstViewController: UIViewController
     {
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = "Search Book"
-        searchController.searchBar.scopeButtonTitles = ["title", "author"]
-        searchController.searchBar.selectedScopeButtonIndex = 0
-        searchController.searchBar.showsScopeBar = false
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.obscuresBackgroundDuringPresentation = true
@@ -105,24 +104,6 @@ class FirstViewController: UIViewController
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-    //MARK: - Set UP Data
-//    private func setupData()
-//    {
-//        let sec = AppConstants.Network.urls.count - 1
-//        service.fetchData(section: sec) { (datas) in
-//
-//            guard let data = datas else {return}
-//
-//            self.readingList = data
-//
-//            for item in self.readingList {
-//                self.viewModel.addBook(title: item.title, author: item.author, image: item.imageUrl, webReader: item.webReaderUrl, sender: nil)
-//            }
-//
-//            self.collectionView.reloadData()
-//        }
-//    }
     
     private func setupCollectionViewLayout()
     {
@@ -155,6 +136,7 @@ class FirstViewController: UIViewController
     {
         var deleteIndexPaths: [IndexPath] = []
         var deleteFinishFlag = false
+        var count = 0
         for (key, value) in selectedIndexPath
         {
             if value
@@ -163,19 +145,24 @@ class FirstViewController: UIViewController
             }
         }
         
+        guard deleteIndexPaths.count != 0 else { return }
+        count = deleteIndexPaths.count
+        
         for indexPath in deleteIndexPaths
         {
             let book = viewModel.bookObject(at: indexPath)
             
-            if indexPath.item == deleteIndexPaths.count - 1
+            if count == 1
             {
                 deleteFinishFlag = true
             }
             
             guard let title = book.title else { return }
             viewModel.deleteBook(title: title, completeState: deleteFinishFlag)
+            count -= 1
         }
         
+        selectedIndexPath.removeAll()
         viewModel.refreshData()
     }
     
@@ -186,8 +173,10 @@ class FirstViewController: UIViewController
         let item = sender as! Book
         if segue.identifier == AppConstants.SB.webViewSegueId
         {
-            guard let vc = segue.destination as? WebViewController else {return}
-            vc.url = item.webReaderURL
+            guard let vc = segue.destination as? WebViewController, let title = item.title, let author = item.author else {return}
+            
+            vc.book = DataModel.Novel(title: title, author: author, imageUrl: item.imageURL, webReaderUrl: item.webReaderURL)
+            vc.isInReadingList = true
         }
     }
     
@@ -226,22 +215,6 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.Cell.favoritCollectionCellId, for: indexPath) as! FavoriteCollectionViewCell
         
         cell.configureCell(indexPath: indexPath)
-//        let data = readingList[indexPath.row]
-//        cell.bookTitle.text = "\(data.title)\n \(data.author)"
-//        cell.bookImageView.image = #imageLiteral(resourceName: "bookImage")
-//        cell.contentMode = .scaleToFill
-//        guard let url = data.imageUrl else { return cell}
-//        //MARK: nuke
-//        Nuke.loadImage(with: url, options: options,into: cell.bookImageView)
-//
-//        if indexPath.row % 2 == 0
-//        {
-//            cell.backgroundColor = UIColor(red: 200.0/255.0, green: 220.0/255.0, blue: 196.0/255.0, alpha: 1)
-//        }
-//        else
-//        {
-//            cell.backgroundColor = UIColor(red: 255.0/255.0, green: 200.0/255.0, blue: 196.0/255.0, alpha: 1)
-//        }
         
         return cell
     }
@@ -293,24 +266,25 @@ extension FirstViewController: UISearchBarDelegate
         }
     }
     
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
-//    {
-//        if let searchText = searchBar.searchTextField.text, !searchText.isEmpty
-//        {
-//            viewModel.fetchObj(selectedScopeIndx: searchBar.selectedScopeButtonIndex, searchText: searchText)
-//
-//            collectionView.reloadData()
-//        }
-//        else
-//        {
-//            viewModel.fetchObj()
-//            collectionView.reloadData()
-//        }
-//    }
-//
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
+    {
+        if let searchText = searchBar.searchTextField.text, !searchText.isEmpty
+        {
+            viewModel.fetchObj(selectedScopeIndx: searchBar.selectedScopeButtonIndex, searchText: searchText)
+
+            collectionView.reloadData()
+        }
+        else
+        {
+            viewModel.fetchObj()
+            collectionView.reloadData()
+        }
+    }
+
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
     {
-        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["title", "author"]
+        searchBar.selectedScopeButtonIndex = 0
         isSearchActive = true
         collectionView.reloadData()
         return true
@@ -318,7 +292,6 @@ extension FirstViewController: UISearchBarDelegate
 
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool
     {
-        searchBar.showsScopeBar = false
         isSearchActive = false
         collectionView.reloadData()
         return true
@@ -326,6 +299,7 @@ extension FirstViewController: UISearchBarDelegate
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
     {
+        searchBar.scopeButtonTitles = nil
         viewModel.fetchObj()
         collectionView.reloadData()
     }

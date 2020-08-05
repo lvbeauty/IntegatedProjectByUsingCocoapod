@@ -151,14 +151,11 @@
                                     <action selector="goBackButtonTapped:" destination="gmT-Mt-4wP" id="058-Cc-uNO"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="heart" catalog="system" id="MGG-Zw-DtV">
-                                <connections>
-                                    <action selector="favoriteButtonTapped:" destination="gmT-Mt-4wP" id="Abp-O7-D8Y"/>
-                                </connections>
-                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="goBackwardButton" destination="Fcz-2Y-sDC" id="Bd3-sa-5VB"/>
+                        <outlet property="goForwardButton" destination="ol6-UV-eIi" id="ehH-Ni-PPm"/>
                         <outlet property="webView" destination="gdv-pk-gie" id="iR8-ke-wDp"/>
                     </connections>
                 </viewController>
@@ -935,7 +932,6 @@
         <image name="book_profile" width="320" height="480"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="email" width="105" height="104"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="key" width="105.5" height="104.5"/>
         <image name="loginImage" width="330" height="330"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>

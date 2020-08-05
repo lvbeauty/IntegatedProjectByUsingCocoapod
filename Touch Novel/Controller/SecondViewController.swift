@@ -14,7 +14,6 @@ import ESPullToRefresh
 class SecondViewController: UIViewController
 {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var favoritesButton: UIBarButtonItem!
     
     let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
     let zoomAnimation = AnimationType.zoom(scale: 0.2)
@@ -22,6 +21,7 @@ class SecondViewController: UIViewController
     
     var dataSource = [[DataModel.Novel]]()
     let networkManager = Service.shared
+    lazy var viewModel = ViewModel()
     
     override func viewDidLoad()
     {
@@ -80,7 +80,11 @@ class SecondViewController: UIViewController
         if segue.identifier == AppConstants.SB.webViewSegueId2
         {
             guard let vc = segue.destination as? WebViewController else {return}
-            vc.url = item.webReaderUrl
+            vc.book = item
+            
+            viewModel.fetchBooksThroughBookTitle(title: item.title) { _ in
+                vc.isInReadingList = true
+            }
         }
     }
     

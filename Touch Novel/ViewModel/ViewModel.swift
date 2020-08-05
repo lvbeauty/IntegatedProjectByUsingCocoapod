@@ -51,6 +51,10 @@ class ViewModel {
         coreDataManager.deleteBook(title: title, completeState: completeState)
     }
     
+    func fetchBooksThroughBookTitle(title: String, handler: (Book) -> Void) {
+        coreDataManager.fetchBooksThroughBookTitle(title: title, handler: handler)
+    }
+    
     func refreshData(sortKey: String? = nil)
     {
         coreDataManager.fetchObj()

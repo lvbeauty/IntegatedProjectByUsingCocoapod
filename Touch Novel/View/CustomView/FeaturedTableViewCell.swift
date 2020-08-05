@@ -46,7 +46,7 @@ class FeaturedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.Cell.collectionViewCellId, for: indexPath) as! BookCollectionViewCell
-        let data = listNovel[indexPath.row]
+        let data = listNovel[indexPath.item]
         cell.bookTitle.text = "\(data.title)\n \(data.author)"
         cell.contentMode = .scaleToFill
         
@@ -55,7 +55,7 @@ class FeaturedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         //MARK: third PL -> NUKE -> load image from web
         Nuke.loadImage(with: url, options: options, into: cell.bookImageView)
 
-        if indexPath.row % 2 == 0
+        if indexPath.item % 2 == 0
         {
             cell.backgroundColor = UIColor(red: 200.0/255.0, green: 220.0/255.0, blue: 196.0/255.0, alpha: 1)
         }
