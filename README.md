@@ -5,7 +5,8 @@ Touch Novel is a demo project for reading various Novels being dynamically fetch
 
 The idea was to leverage various third-party libraries that I wanted to use.
 
-App Demo: https://drive.google.com/file/d/17pZYLQfH7-GlcXzSQYJWHS3ST7fzuMfT/view?usp=sharing
+App Demo:  portrait: https://drive.google.com/file/d/1xCbv860xuWQXqTK_UHqABNE7VGW7mNgT/view?usp=sharing
+                    landscape: https://drive.google.com/file/d/1580e9i6b2jOs2W3zqAjsJZPiwMJtDsfn/view?usp=sharing
 
 Project need pod install before run
 
@@ -34,7 +35,7 @@ Code Updates:
     3. using ESPullToRefresh library
     4. add Search controller
     // new updates
-    5. add sliding menu, and favorite books
+    5. add favorite books screen
 
 Feature work:
 

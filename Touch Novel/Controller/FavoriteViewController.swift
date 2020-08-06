@@ -21,6 +21,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         setupViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.refreshData(entityName: "FavoriteBook")
+    }
+    
     private func setupUI()
     {
         tableView.tableFooterView = UIView()
@@ -50,7 +54,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Table view data Delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 150
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -62,7 +66,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
     }
     
     //MARK: - prepare for Segue

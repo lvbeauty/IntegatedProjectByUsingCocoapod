@@ -91,7 +91,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VH5-5K-Lr3" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="CpO-In-kTk"/>
                             <constraint firstItem="VH5-5K-Lr3" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="JkG-Xu-KMx"/>
@@ -213,7 +213,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rqe-69-JAu" secondAttribute="trailing" constant="10" id="ukj-8P-fwO"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.78823529411764703" green="0.72941176470588232" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="authorLabel" destination="Rqe-69-JAu" id="DBz-Pn-V9V"/>
                                             <outlet property="bookImage" destination="DRS-dj-I4Y" id="rna-LV-ygk"/>
@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KO-wo-SCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3157.971014492754" y="1782.5892857142856"/>
+            <point key="canvasLocation" x="2248" y="1783"/>
         </scene>
         <!--Novel-->
         <scene sceneID="wg7-f3-ORb">
@@ -368,7 +368,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.87058823529411766" green="0.82745098039215681" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wd2-TQ-MvU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="9h1-IV-8zJ"/>
                             <constraint firstItem="wd2-TQ-MvU" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="Ocz-Io-rd7"/>
@@ -710,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYW-9w-gtp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1020" y="0.0"/>
+            <point key="canvasLocation" x="-1810" y="786"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="1ny-8G-z7U">
@@ -836,7 +836,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsc-ax-t6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="325.86206896551727"/>
+            <point key="canvasLocation" x="-2594" y="1513"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="fLv-Hx-G4X">
@@ -968,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5h-iF-9rS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="-343"/>
+            <point key="canvasLocation" x="-1159" y="1513"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1090,7 +1090,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="56G-hi-5uR"/>
+        <segue reference="Epl-xh-3xP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>

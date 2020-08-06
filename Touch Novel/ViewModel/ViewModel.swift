@@ -62,9 +62,9 @@ class ViewModel {
         coreDataManager.fetchBooksThroughBookTitle(title: title, entityName: entityName, handler: handler)
     }
     
-    func refreshData(sortKey: String? = nil)
+    func refreshData(entityName: String? = nil, sortKey: String? = nil)
     {
-        coreDataManager.fetchObj()
+        coreDataManager.fetchObj(entityName: entityName)
         updateHandler()
     }
 }
