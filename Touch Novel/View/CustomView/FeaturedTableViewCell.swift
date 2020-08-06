@@ -57,11 +57,11 @@ class FeaturedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
 
         if indexPath.item % 2 == 0
         {
-            cell.backgroundColor = UIColor(red: 200.0/255.0, green: 220.0/255.0, blue: 196.0/255.0, alpha: 1)
+            cell.backgroundColor = UIColor(red: 137.0/255.0, green: 190.0/255.0, blue: 178.0/255.0, alpha: 1)
         }
         else
         {
-            cell.backgroundColor = UIColor(red: 255.0/255.0, green: 200.0/255.0, blue: 196.0/255.0, alpha: 1)
+            cell.backgroundColor = UIColor(red: 201.0/255.0, green: 186.0/255.0, blue: 131.0/255.0, alpha: 1)
         }
         
         return cell

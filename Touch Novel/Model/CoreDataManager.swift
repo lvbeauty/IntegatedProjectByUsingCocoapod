@@ -56,9 +56,9 @@ class CoreDataManager
 
     //MARK: - CRUD
     
-    func fetchObj(sortKey: String? = nil, selectedScopeIndx: Int? = nil, searchText: String? = nil) {
+    func fetchObj(sortKey: String? = nil, entityName: String? = nil, selectedScopeIndx: Int? = nil, searchText: String? = nil) {
         let bookSort = NSSortDescriptor(key: sortKey ?? "title", ascending: true)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName ?? AppConstants.EntityName.book)
         fetchRequest.sortDescriptors = [bookSort]
         fetchRequest.returnsObjectsAsFaults = true
         
@@ -87,11 +87,11 @@ class CoreDataManager
         }
     }
     
-    func fetchBooksThroughBookTitle(title: String, handler: (Book) -> Void) {
+    func fetchBooksThroughBookTitle(title: String, entityName: String? = nil, handler: (NSManagedObject) -> Void) {
         
-        let updateRequest = NSFetchRequest<Book>(entityName: "Book")
+        let updateRequest = NSFetchRequest<NSManagedObject>(entityName: entityName ?? AppConstants.EntityName.book)
         updateRequest.predicate = NSPredicate(format: "title = %@", "\(title)")
-        var books: [Book]!
+        var books: [NSManagedObject]!
         do
         {
             books = try moc.fetch(updateRequest)
@@ -105,13 +105,21 @@ class CoreDataManager
         handler(book)
     }
     
-    func addBook(title: String?, author: String?, image: URL?, webReader: URL?, sender: UIViewController?)
+    func addBook(title: String?, author: String?, image: URL?, webReader: URL?, entityName: String? = nil, sender: UIViewController?)
     {
-        let book = Book(context: moc)
-        book.title = title
-        book.author = author
-        book.imageURL = image
-        book.webReaderURL = webReader
+        if entityName == AppConstants.EntityName.favoriteBook {
+            let book = FavoriteBook(context: moc)
+            book.title = title
+            book.author = author
+            book.imageURL = image
+            book.webReaderURL = webReader
+        } else {
+            let book = Book(context: moc)
+            book.title = title
+            book.author = author
+            book.imageURL = image
+            book.webReaderURL = webReader
+        }
         
         saveContext()
         
@@ -123,7 +131,7 @@ class CoreDataManager
     {
         do
         {
-            let request = NSFetchRequest<Book>(entityName: "Book")
+            let request = NSFetchRequest<Book>(entityName: AppConstants.EntityName.book)
             booksMo = try moc.fetch(request)
             
             for book in booksMo
@@ -137,9 +145,9 @@ class CoreDataManager
         }
     }
     
-    func deleteBook(title: String, completeState: Bool = true)
+    func deleteBook(title: String, entityName: String? = nil, completeState: Bool = true)
     {
-        fetchBooksThroughBookTitle(title: title) { (book) in
+        fetchBooksThroughBookTitle(title: title, entityName: entityName) { (book) in
             moc.delete(book)
             
             if completeState

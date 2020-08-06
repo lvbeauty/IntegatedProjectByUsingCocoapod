@@ -57,3 +57,15 @@ extension String
 //        
 //    }
 }
+
+extension UIViewController {
+    func shadowTabBar() {
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
+        self.tabBarController?.tabBar.shadowImage = UIImage()
+        self.tabBarController?.tabBar.layer.shadowColor = UIColor.orange.cgColor
+        self.tabBarController?.tabBar.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.tabBarController?.tabBar.layer.shadowRadius = 2
+        self.tabBarController?.tabBar.layer.shadowOpacity = 0.4
+        self.tabBarController?.tabBar.clipsToBounds = true
+    }
+}

@@ -16,8 +16,8 @@ struct AppConstants
     struct Colors
     {
         static let orangePink = UIColor(red: 255.0/255.0, green: 120.0/255.0, blue: 100.0/255.0, alpha: 1)
-        static let lightPink  = UIColor.systemPink.withAlphaComponent(0.8)
-        static let pink       = UIColor.systemPink.withAlphaComponent(0.9)
+        static let lightPink  = UIColor.systemPink.withAlphaComponent(0.6)
+        static let pink       = UIColor.systemPink.withAlphaComponent(0.8)
         static let white      = UIColor.white
     }
 
@@ -51,6 +51,7 @@ struct AppConstants
         static let resetPasswordId = "ForgetPasswordViewController"
         static let webViewSegueId = "showWebViewSegue"
         static let webViewSegueId2 = "showWebViewSegue2"
+        static let webViewSegueId3 = "showWebViewSegue3"
     }
     
     //MARK: - Cell
@@ -101,6 +102,11 @@ struct AppConstants
     struct Profile
     {
         static let imageName = "profileImage"
+    }
+    
+    struct EntityName {
+        static let book = "Book"
+        static let favoriteBook = "FavoriteBook"
     }
     
 }

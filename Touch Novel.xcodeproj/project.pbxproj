@@ -32,6 +32,9 @@
 		249F3610247C2EFD0099CA0A /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F360F247C2EFD0099CA0A /* BookCollectionViewCell.swift */; };
 		249F3612247C38940099CA0A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3611247C38940099CA0A /* DataModel.swift */; };
 		249F3614247C4A920099CA0A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249F3613247C4A920099CA0A /* Service.swift */; };
+		24A7053324DC39FB00C165FA /* SlidesInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A7053224DC39FB00C165FA /* SlidesInTransition.swift */; };
+		24A7053524DC3D0900C165FA /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A7053424DC3D0900C165FA /* FavoriteViewController.swift */; };
+		24A7053724DC3D2900C165FA /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A7053624DC3D2900C165FA /* FavoriteTableViewCell.swift */; };
 		24B6BFEA24D39FC9008221E6 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6BFE924D39FC9008221E6 /* Protocol.swift */; };
 		24C87D3A24D9B8E70006373F /* FavoriteBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C87D3824D9B8E70006373F /* FavoriteBooks.xcdatamodeld */; };
 		24C87D3C24D9BA000006373F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C87D3B24D9BA000006373F /* CoreDataManager.swift */; };
@@ -97,6 +100,9 @@
 		249F360F247C2EFD0099CA0A /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		249F3611247C38940099CA0A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		249F3613247C4A920099CA0A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		24A7053224DC39FB00C165FA /* SlidesInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidesInTransition.swift; sourceTree = "<group>"; };
+		24A7053424DC3D0900C165FA /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		24A7053624DC3D2900C165FA /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		24B6BFE924D39FC9008221E6 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		24C87D3924D9B8E70006373F /* FavoriteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteModel.xcdatamodel; sourceTree = "<group>"; };
 		24C87D3B24D9BA000006373F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 				24839D68247B0D630076EAAB /* ThirdViewController.swift */,
 				24FD7F46247EB33E0048EA86 /* WebViewController.swift */,
 				24B6BFE924D39FC9008221E6 /* Protocol.swift */,
+				24A7053424DC3D0900C165FA /* FavoriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 				24839D7F247B0E4B0076EAAB /* Extension.swift */,
 				24839D97247B81F10076EAAB /* Utilities.swift */,
 				24C87D4424D9D3C70006373F /* AlertManager.swift */,
+				24A7053224DC39FB00C165FA /* SlidesInTransition.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 				249F360D247C2EE60099CA0A /* FeaturedTableViewCell.swift */,
 				249F360F247C2EFD0099CA0A /* BookCollectionViewCell.swift */,
 				243FA31E247DB25C004563F4 /* FavoriteCollectionViewCell.swift */,
+				24A7053624DC3D2900C165FA /* FavoriteTableViewCell.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -414,6 +423,7 @@
 				24C87D3A24D9B8E70006373F /* FavoriteBooks.xcdatamodeld in Sources */,
 				24839D98247B81F10076EAAB /* Utilities.swift in Sources */,
 				249F360E247C2EE60099CA0A /* FeaturedTableViewCell.swift in Sources */,
+				24A7053324DC39FB00C165FA /* SlidesInTransition.swift in Sources */,
 				24C87D4024D9D29F0006373F /* Book+CoreDataProperties.swift in Sources */,
 				249F3610247C2EFD0099CA0A /* BookCollectionViewCell.swift in Sources */,
 				24839D67247B0D630076EAAB /* FirstViewController.swift in Sources */,
@@ -421,7 +431,9 @@
 				24839D90247B67F00076EAAB /* SignUpViewController.swift in Sources */,
 				249DA0D824DB335F005B2298 /* FavoriteBook+CoreDataClass.swift in Sources */,
 				249DA0D924DB335F005B2298 /* FavoriteBook+CoreDataProperties.swift in Sources */,
+				24A7053524DC3D0900C165FA /* FavoriteViewController.swift in Sources */,
 				24839D9A247BA84A0076EAAB /* BaseNavController.swift in Sources */,
+				24A7053724DC3D2900C165FA /* FavoriteTableViewCell.swift in Sources */,
 				249F3612247C38940099CA0A /* DataModel.swift in Sources */,
 				24B6BFEA24D39FC9008221E6 /* Protocol.swift in Sources */,
 				24839D63247B0D630076EAAB /* AppDelegate.swift in Sources */,

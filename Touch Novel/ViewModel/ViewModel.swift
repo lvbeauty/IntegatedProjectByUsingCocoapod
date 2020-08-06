@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewModel {
     
@@ -14,11 +15,11 @@ class ViewModel {
     var updateHandler: () -> () = {}
     typealias Handler = () -> ()
     
-    init() { setupCoreDataManager() }
+    init(entityName: String? = nil) { setupCoreDataManager(entityName: entityName) }
     
-    private func setupCoreDataManager()
+    private func setupCoreDataManager(entityName: String? = nil)
     {
-        coreDataManager.fetchObj()
+        coreDataManager.fetchObj(entityName: entityName)
         coreDataManager.loadBooks()
     }
     
@@ -36,23 +37,29 @@ class ViewModel {
         return book
     }
     
-    func fetchObj(sortKey: String? = nil, selectedScopeIndx: Int? = nil, searchText: String? = nil)
+    func favoriteBookObject(at indexPath: IndexPath) -> FavoriteBook
     {
-        coreDataManager.fetchObj(sortKey: sortKey, selectedScopeIndx: selectedScopeIndx, searchText: searchText)
+        let book = coreDataManager.fetchedResultController.object(at: indexPath) as! FavoriteBook
+        return book
+    }
+    
+    func fetchObj(sortKey: String? = nil, entityName: String? = nil, selectedScopeIndx: Int? = nil, searchText: String? = nil)
+    {
+        coreDataManager.fetchObj(sortKey: sortKey, entityName: entityName, selectedScopeIndx: selectedScopeIndx, searchText: searchText)
     }
     
     //MARK: - CRUD
     
-    func addBook(title: String, author: String, image: URL?, webReader: URL?, sender: UIViewController?) {
-        coreDataManager.addBook(title: title, author: author, image: image, webReader: webReader, sender: sender)
+    func addBook(title: String, author: String, image: URL?, webReader: URL?, entityName: String? = nil, sender: UIViewController?) {
+        coreDataManager.addBook(title: title, author: author, image: image, webReader: webReader, entityName: entityName, sender: sender)
     }
     
-    func deleteBook(title: String, completeState: Bool = true) {
-        coreDataManager.deleteBook(title: title, completeState: completeState)
+    func deleteBook(title: String, entityName: String? = nil, completeState: Bool = true) {
+        coreDataManager.deleteBook(title: title, entityName: entityName, completeState: completeState)
     }
     
-    func fetchBooksThroughBookTitle(title: String, handler: (Book) -> Void) {
-        coreDataManager.fetchBooksThroughBookTitle(title: title, handler: handler)
+    func fetchBooksThroughBookTitle(title: String, entityName: String? = nil, handler: (NSManagedObject) -> Void) {
+        coreDataManager.fetchBooksThroughBookTitle(title: title, entityName: entityName, handler: handler)
     }
     
     func refreshData(sortKey: String? = nil)

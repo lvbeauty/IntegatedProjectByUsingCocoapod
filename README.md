@@ -34,12 +34,10 @@ Code Updates:
     3. using ESPullToRefresh library
     4. add Search controller
     // new updates
-    5. fix navigation bar issue for the library page.
+    5. add sliding menu, and favorite books
 
 Feature work:
 
     1. wanna fix some bugs about login page
     2. wanna improve the appearance of the profile page. 
-    3. wanna make the feature page have more functionilaties. 
-    e.g.:  if I select the collection cell item which in the table view cell, and push the heart button in the nav bar, then I can add the book into the first page.
 

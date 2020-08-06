@@ -86,8 +86,8 @@ class FirstViewController: UIViewController
         navigationController!.navigationBar.barStyle = .black
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(red: 255/255, green: 77/255, blue: 119/255, alpha: 1)
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        appearance.backgroundColor = UIColor(red: 222/255, green: 156/255, blue: 83/255, alpha: 1)
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.8)]
 
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
@@ -177,6 +177,10 @@ class FirstViewController: UIViewController
             
             vc.book = DataModel.Novel(title: title, author: author, imageUrl: item.imageURL, webReaderUrl: item.webReaderURL)
             vc.isInReadingList = true
+            
+            viewModel.fetchBooksThroughBookTitle(title: title, entityName: AppConstants.EntityName.favoriteBook) { _ in
+                vc.isFavorite = true
+            }
         }
     }
     

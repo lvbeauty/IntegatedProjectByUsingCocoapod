@@ -18,45 +18,29 @@ class WebViewController: UIViewController, WKNavigationDelegate
     
     var book: DataModel.Novel!
     var isInReadingList = false
+    var isFavorite = false
     lazy var viewModel = ViewModel()
     
     
     lazy var addToListButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "addToList"), style: .plain, target: self, action: #selector(didAddToListButtonTapped))
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(didAddToListButtonTapped))
         return barButtonItem
     }()
     
-    lazy var areadlyInListButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "alreadyInList"), style: .plain, target: self, action: #selector(didAreadlyInListButtonTapped))
+    lazy var alreadyInListButton: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "book.fill"), style: .plain, target: self, action: #selector(didAlreadyInListButtonTapped))
         return barButtonItem
     }()
     
     lazy var notFavoriteButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didAddToListButtonTapped))
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didNotFavoriteButtonTapped))
         return barButtonItem
     }()
     
     lazy var favouriteButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(didAreadlyInListButtonTapped))
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(didFavoriteButtonTapped))
         return barButtonItem
     }()
-    
-    @objc func didAddToListButtonTapped(_ sender: UIBarButtonItem)
-    {
-        navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, areadlyInListButton]
-          
-        viewModel.addBook(title: book.title, author: book.author, image: book.imageUrl, webReader: book.webReaderUrl, sender: self)
-    }
-    
-    @objc func didAreadlyInListButtonTapped(_ sender: UIBarButtonItem)
-    {
-        navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, addToListButton]
-        
-        let title = book.title
-        
-        viewModel.deleteBook(title: title)
-        AlertManager.shared.action(bookTitle: title, sender: self)
-    }
     
     override func viewDidLoad()
     {
@@ -68,11 +52,7 @@ class WebViewController: UIViewController, WKNavigationDelegate
     {
         let request = URLRequest(url: book.webReaderUrl!)
         
-        if isInReadingList {
-            navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, areadlyInListButton]
-        } else {
-            navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, addToListButton]
-        }
+        navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, isFavoriteBookButton(isFavorite), isBookInTheListButton(isInReadingList)]
         
         webView.navigationDelegate = self
         webView.load(request)
@@ -91,6 +71,66 @@ class WebViewController: UIViewController, WKNavigationDelegate
         if webView.canGoForward
         {
             webView.goForward()
+        }
+    }
+    
+    //MARK: - selector methods
+    
+    @objc func didAddToListButtonTapped(_ sender: UIBarButtonItem)
+    {
+        isInReadingList = !isInReadingList
+        
+        navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, isFavoriteBookButton(isFavorite), isBookInTheListButton(isInReadingList)]
+          
+        viewModel.addBook(title: book.title, author: book.author, image: book.imageUrl, webReader: book.webReaderUrl, sender: self)
+    }
+    
+    @objc func didAlreadyInListButtonTapped(_ sender: UIBarButtonItem)
+    {
+        let title = book.title
+        
+        AlertManager.shared.action(bookTitle: title, sender: self) { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.isInReadingList = !weakSelf.isInReadingList
+            weakSelf.navigationItem.rightBarButtonItems = [weakSelf.goForwardButton, weakSelf.goBackwardButton, weakSelf.isFavoriteBookButton(weakSelf.isFavorite), weakSelf.isBookInTheListButton(weakSelf.isInReadingList)]
+        }
+    }
+    
+    @objc func didNotFavoriteButtonTapped(_ sender: UIBarButtonItem)
+    {
+        isFavorite = !isFavorite
+        
+        navigationItem.rightBarButtonItems = [goForwardButton, goBackwardButton, isFavoriteBookButton(isFavorite), isBookInTheListButton(isInReadingList)]
+          
+        viewModel.addBook(title: book.title, author: book.author, image: book.imageUrl, webReader: book.webReaderUrl, entityName: AppConstants.EntityName.favoriteBook, sender: self)
+    }
+    
+    @objc func didFavoriteButtonTapped(_ sender: UIBarButtonItem)
+    {
+        let title = book.title
+        
+        AlertManager.shared.action(bookTitle: title, entityName: AppConstants.EntityName.favoriteBook, sender: self) { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.isFavorite = !weakSelf.isFavorite
+            weakSelf.navigationItem.rightBarButtonItems = [weakSelf.goForwardButton, weakSelf.goBackwardButton, weakSelf.isFavoriteBookButton(weakSelf.isFavorite), weakSelf.isBookInTheListButton(weakSelf.isInReadingList)]
+        }
+    }
+    
+    //MARK: - Help Methods
+    
+    func isFavoriteBookButton(_ check: Bool) -> UIBarButtonItem {
+        if check {
+            return favouriteButton
+        } else {
+            return notFavoriteButton
+        }
+    }
+    
+    func isBookInTheListButton(_ check: Bool) -> UIBarButtonItem {
+        if check {
+            return alreadyInListButton
+        } else {
+            return addToListButton
         }
     }
     

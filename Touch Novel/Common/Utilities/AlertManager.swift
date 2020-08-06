@@ -11,6 +11,7 @@ import UIKit
 class AlertManager
 {
     static let shared = AlertManager()
+    typealias handler = () -> ()
     
     private init() {}
     
@@ -25,15 +26,16 @@ class AlertManager
         sender.present(alertController, animated: true, completion: nil)
     }
     
-    func action(bookTitle: String, sender: UIViewController)
+    func action(bookTitle: String, entityName: String? = nil, sender: UIViewController, handler: @escaping handler)
     {
         let alertController = UIAlertController(title: "Would you like to remove the book from reading list?", message: nil, preferredStyle: .actionSheet)
         
         let removeAction = UIAlertAction(title: "Remove", style: .destructive) { (action) -> Void in
             let viewModel = ViewModel()
-            viewModel.deleteBook(title: bookTitle)
+            viewModel.deleteBook(title: bookTitle, entityName: entityName)
             
             self.alert("Book has been removed.", nil, sender: sender)
+            handler()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

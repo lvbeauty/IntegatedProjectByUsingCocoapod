@@ -17,6 +17,7 @@ class ThirdViewController: UIViewController
     @IBOutlet weak var logOutButton: UIButton!
     
     private let photoPickCtrl = UIImagePickerController()
+    private let transition = SlidesInTransition()
     let fileManager = FileManager.default
     
     override func viewDidLoad()
@@ -44,6 +45,9 @@ class ThirdViewController: UIViewController
         
         CustomButton.roundBorderButton(resetPasswordButton)
         CustomButton.roundBorderButton(logOutButton)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     @IBAction func resetPasswordButtonTapped(_ sender: UIButton)
@@ -67,6 +71,13 @@ class ThirdViewController: UIViewController
             window?.makeKeyAndVisible()
         }
     }
+    
+//    @IBAction func favoriteButtonTapped(_ sender: Any) {
+//        guard let favoriteVC = storyboard?.instantiateViewController(withIdentifier: "FavoriteNavigationController") as? FavoriteViewController else { return }
+//        favoriteVC.modalPresentationStyle = .overCurrentContext
+//        favoriteVC.transitioningDelegate = self
+//        present(favoriteVC, animated: true, completion: nil)
+//    }
 }
 
 // MARK: - Image Picker and Gesture
@@ -130,9 +141,21 @@ extension ThirdViewController
     }
 }
 
-extension ThirdViewController
+//MARK: - Sliding Transition
+
+extension ThirdViewController: UIViewControllerTransitioningDelegate
 {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        transition.isPresenting = true
+        return transition
+    }
     
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        transition.isPresenting = false
+        return transition
+    }
 }
 
 

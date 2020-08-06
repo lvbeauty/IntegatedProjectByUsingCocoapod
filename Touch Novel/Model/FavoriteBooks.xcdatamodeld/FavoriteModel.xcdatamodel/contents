@@ -6,7 +6,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="webReaderURL" optional="YES" attributeType="URI"/>
     </entity>
-    <entity name="FavoriteBook" representedClassName="FavoriteBook" syncable="YES" codeGenerationType="class">
+    <entity name="FavoriteBook" representedClassName="FavoriteBook" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="URI"/>
         <attribute name="title" optional="YES" attributeType="String"/>

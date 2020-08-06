@@ -49,12 +49,13 @@ class SecondViewController: UIViewController
     }
     
 //    func setupUI() {
-//        self.navigationItem.leftBarButtonItem = editButtonItem
+//        self.shadowTabBar()
 //    }
     
     func tableViewSetup()
     {
         tableView.tableFooterView = UIView()
+//        tableView.backgroundColor = UIColor(red: 222.0/255.0, green: 156.0/255.0, blue: 83.0/255.0, alpha: 1)
         tableView.backgroundColor = UIColor(red: 253.0/255.0, green: 240.0/255.0, blue: 196.0/255.0, alpha: 1)
         tableView.es.addPullToRefresh { [unowned self] in
             self.setupData()
@@ -84,6 +85,10 @@ class SecondViewController: UIViewController
             
             viewModel.fetchBooksThroughBookTitle(title: item.title) { _ in
                 vc.isInReadingList = true
+            }
+            
+            viewModel.fetchBooksThroughBookTitle(title: item.title, entityName: AppConstants.EntityName.favoriteBook) { _ in
+                vc.isFavorite = true
             }
         }
     }
@@ -115,7 +120,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource, Coll
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: tableView.bounds.width, height: 28))
-        label.backgroundColor = UIColor(red: 253.0/255.0, green: 240.0/255.0, blue: 196.0/255.0, alpha: 1)
+        label.backgroundColor = UIColor(red: 222.0/255.0, green: 211.0/255.0, blue: 140.0/255.0, alpha: 1)
 
         
         switch section {
