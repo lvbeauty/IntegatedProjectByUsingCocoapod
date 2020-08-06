@@ -10,6 +10,9 @@ App Demo:  portrait: https://drive.google.com/file/d/1xCbv860xuWQXqTK_UHqABNE7VG
 
 Project need pod install before run
 
+![](AppDemo/SignUp.gif)
+
+
 Third-Party Libraries being used:
 
     1. Alamofire: 
