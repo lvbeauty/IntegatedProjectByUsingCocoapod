@@ -10,7 +10,7 @@ App Demo:  portrait: https://drive.google.com/file/d/1xCbv860xuWQXqTK_UHqABNE7VG
 
 Project need pod install before run
 
-![](AppDemo/SignUp.gif)
+![](AppDemo/SignUp.gif) ![](AppDemo/Profile.gif) ![](AppDemo/resetPassword.gif) ![](AppDemo/AddFavorite.gif) ![](AppDemo/DeleteReadingList.gif) ![](AppDemo/addReadingList.gif) ![](AppDemo/AddOrRemoveReadingList.gif) ![](AppDemo/SearchBar.gif) 
 
 
 Third-Party Libraries being used:
