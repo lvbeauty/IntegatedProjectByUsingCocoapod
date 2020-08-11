@@ -40,7 +40,7 @@ Code Updates:
     // new updates
     5. add favorite books screen
 
-Feature work:
+Future work:
 
     1. wanna fix some bugs about login page
     2. wanna improve the appearance of the profile page. 
