@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,8 @@
 		24CB2FB924C64EAD001298F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24CB2FB724C64EAD001298F8 /* MainInterface.storyboard */; };
 		24CB2FBD24C64EAD001298F8 /* SharedExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24CB2FB324C64EAD001298F8 /* SharedExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24FD7F47247EB33E0048EA86 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD7F46247EB33E0048EA86 /* WebViewController.swift */; };
+		24FFA35C24F04B8200842ABE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FFA35B24F04B8200842ABE /* Security.framework */; };
+		24FFA35F24F05EBE00842ABE /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFA35E24F05EBE00842ABE /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,9 @@
 		24CB2FBA24C64EAD001298F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24CB2FC224C64F0C001298F8 /* SharedExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharedExt.entitlements; sourceTree = "<group>"; };
 		24FD7F46247EB33E0048EA86 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		24FFA35B24F04B8200842ABE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		24FFA35D24F04B8C00842ABE /* Touch Novel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Touch Novel.entitlements"; sourceTree = "<group>"; };
+		24FFA35E24F05EBE00842ABE /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24FFA35C24F04B8200842ABE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +157,7 @@
 				24CB2FB424C64EAD001298F8 /* SharedExt */,
 				24839D60247B0D630076EAAB /* Products */,
 				05ED346E79A586712FDCB32A /* Pods */,
+				24FFA35A24F04B8200842ABE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +173,7 @@
 		24839D61247B0D630076EAAB /* Touch Novel */ = {
 			isa = PBXGroup;
 			children = (
+				24FFA35D24F04B8C00842ABE /* Touch Novel.entitlements */,
 				24B6BFE824D39B83008221E6 /* AppEnter */,
 				24839D7D247B0E150076EAAB /* Common */,
 				24839D7C247B0E0C0076EAAB /* Model */,
@@ -249,6 +257,7 @@
 				24839D97247B81F10076EAAB /* Utilities.swift */,
 				24C87D4424D9D3C70006373F /* AlertManager.swift */,
 				24A7053224DC39FB00C165FA /* SlidesInTransition.swift */,
+				24FFA35E24F05EBE00842ABE /* KeychainManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -303,6 +312,14 @@
 				24CB2FBA24C64EAD001298F8 /* Info.plist */,
 			);
 			path = SharedExt;
+			sourceTree = "<group>";
+		};
+		24FFA35A24F04B8200842ABE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24FFA35B24F04B8200842ABE /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +453,7 @@
 				24A7053724DC3D2900C165FA /* FavoriteTableViewCell.swift in Sources */,
 				249F3612247C38940099CA0A /* DataModel.swift in Sources */,
 				24B6BFEA24D39FC9008221E6 /* Protocol.swift in Sources */,
+				24FFA35F24F05EBE00842ABE /* KeychainManager.swift in Sources */,
 				24839D63247B0D630076EAAB /* AppDelegate.swift in Sources */,
 				24839D65247B0D630076EAAB /* SceneDelegate.swift in Sources */,
 				243FA31F247DB25C004563F4 /* FavoriteCollectionViewCell.swift in Sources */,
@@ -608,6 +626,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Touch Novel/Touch Novel.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GB73HYNVQ3;
@@ -629,6 +648,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Touch Novel/Touch Novel.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GB73HYNVQ3;
